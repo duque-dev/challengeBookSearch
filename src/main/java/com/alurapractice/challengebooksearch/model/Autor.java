@@ -13,11 +13,10 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     private Date dateOfBorn;
     private Date dateOfDeath;
-    private List<Book> autorBooks;
-
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "autorId")
     private Set<Book> book;
 
     public Long getId() {
@@ -26,6 +25,14 @@ public class Autor {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getDateOfBorn() {
@@ -42,14 +49,6 @@ public class Autor {
 
     public void setDateOfDeath(Date dateOfDeath) {
         this.dateOfDeath = dateOfDeath;
-    }
-
-    public List<Book> getAutorBooks() {
-        return autorBooks;
-    }
-
-    public void setAutorBooks(List<Book> autorBooks) {
-        this.autorBooks = autorBooks;
     }
 
     public Set<Book> getBook() {

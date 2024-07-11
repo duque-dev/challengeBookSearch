@@ -2,6 +2,8 @@ package com.alurapractice.challengebooksearch.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name="libro")
 public class Book {
@@ -10,9 +12,19 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String autorName;
     private String lenguage;
     private int downloads;
+    private Long autorId;
+
+
+
+    public Long getAutorId() {
+        return autorId;
+    }
+
+    public void setAutorId(Long autorId) {
+        this.autorId = autorId;
+    }
 
     public Long getId() {
         return id;
@@ -30,14 +42,6 @@ public class Book {
         this.name = name;
     }
 
-    public String getaAtorName() {
-        return autorName;
-    }
-
-    public void setAutorName(String lastName) {
-        this.autorName = lastName;
-    }
-
     public String getLenguage() {
         return lenguage;
     }
@@ -52,5 +56,13 @@ public class Book {
 
     public void setDownloads(int downloads) {
         this.downloads = downloads;
+    }
+
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", name='" + name + '\'' +
+                ", lenguage='" + lenguage + '\'' +
+                ", downloads=" + downloads;
     }
 }
