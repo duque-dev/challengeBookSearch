@@ -25,7 +25,7 @@ Dependencias para agregar al crear el proyecto en Spring Initializr:
 
 Conección a la API Gutendex  https://gutendex.com/
 
-Opciones disponibles del challege
+Opciones disponibles del challege  
 1.Buscar libro por titulo  
 2.Listar libros registrados  
 3.Listar autores registrados  
