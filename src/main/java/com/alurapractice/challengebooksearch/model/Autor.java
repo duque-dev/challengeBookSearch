@@ -1,23 +1,21 @@
 package com.alurapractice.challengebooksearch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="autor")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Autor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String authorName;
     private Date dateOfBorn;
     private Date dateOfDeath;
-    @OneToMany(mappedBy = "autorId")
-    private Set<Book> book;
 
     public Long getId() {
         return id;
@@ -27,12 +25,12 @@ public class Autor {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public Date getDateOfBorn() {
@@ -51,11 +49,4 @@ public class Autor {
         this.dateOfDeath = dateOfDeath;
     }
 
-    public Set<Book> getBook() {
-        return book;
-    }
-
-    public void setBook(Set<Book> book) {
-        this.book = book;
-    }
 }

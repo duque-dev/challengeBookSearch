@@ -1,6 +1,6 @@
 package com.alurapractice.challengebooksearch;
 
-import com.alurapractice.challengebooksearch.principal.ShowMenu;
+import com.alurapractice.challengebooksearch.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,8 +14,8 @@ public class ChallengebooksearchApplication implements CommandLineRunner{
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		ShowMenu showMenu = new ShowMenu();
-		showMenu.setMenu();
+		Principal principal = new Principal();
+		principal.setMenu();
 
 
 

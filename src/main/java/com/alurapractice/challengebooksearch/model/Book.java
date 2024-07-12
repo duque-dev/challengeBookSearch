@@ -1,19 +1,21 @@
 package com.alurapractice.challengebooksearch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name="libro")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String lenguage;
-    private int downloads;
+    private String bookName;
+    private List<String> lenguage;
+    private Double downloads;
     private Long autorId;
 
 
@@ -25,7 +27,6 @@ public class Book {
     public void setAutorId(Long autorId) {
         this.autorId = autorId;
     }
-
     public Long getId() {
         return id;
     }
@@ -34,35 +35,37 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
-    public String getLenguage() {
+    public List<String> getLenguage() {
         return lenguage;
     }
 
-    public void setLenguage(String lenguage) {
+    public void setLenguage(List<String> lenguage) {
         this.lenguage = lenguage;
     }
 
-    public int getDownloads() {
+    public Double getDownloads() {
         return downloads;
     }
 
-    public void setDownloads(int downloads) {
+    public void setDownloads(Double downloads) {
         this.downloads = downloads;
     }
 
     @Override
     public String toString() {
         return  "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + bookName + '\'' +
+//                ", author=" + author +
                 ", lenguage='" + lenguage + '\'' +
-                ", downloads=" + downloads;
+                ", downloads=" + downloads +
+                ", autorId=" + autorId;
     }
 }
