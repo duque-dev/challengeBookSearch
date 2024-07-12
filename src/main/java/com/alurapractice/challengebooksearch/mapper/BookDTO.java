@@ -10,6 +10,6 @@ public record BookDTO(
          @JsonAlias("title") String name,
          @JsonAlias("authors") List<AutorDTO> author,
          @JsonAlias("languages") List<String> lenguage,
-         @JsonAlias("download_count") int downloads
+         @JsonAlias("download_count") Double downloads
 ) {
 }

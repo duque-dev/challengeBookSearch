@@ -14,8 +14,16 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String authorName;
-    private Date dateOfBorn;
-    private Date dateOfDeath;
+    private String dateOfBorn;
+    private String dateOfDeath;
+    public Autor(){
+    }
+
+    public Autor(String authorName, String dateOfBorn, String dateOfDeath) {
+        this.authorName = authorName;
+        this.dateOfBorn = dateOfBorn;
+        this.dateOfDeath = dateOfDeath;
+    }
 
     public Long getId() {
         return id;
@@ -33,20 +41,27 @@ public class Autor {
         this.authorName = authorName;
     }
 
-    public Date getDateOfBorn() {
+    public String getDateOfBorn() {
         return dateOfBorn;
     }
 
-    public void setDateOfBorn(Date dateOfBorn) {
+    public void setDateOfBorn(String dateOfBorn) {
         this.dateOfBorn = dateOfBorn;
     }
 
-    public Date getDateOfDeath() {
+    public String getDateOfDeath() {
         return dateOfDeath;
     }
 
-    public void setDateOfDeath(Date dateOfDeath) {
+    public void setDateOfDeath(String dateOfDeath) {
         this.dateOfDeath = dateOfDeath;
     }
 
+    @Override
+    public String toString() {
+        return
+                "Nombre Autor: '" + authorName + '\'' +
+                ", Fecha Nacimiento:'" + dateOfBorn + '\'' +
+                ", Fecha Fallecimiento: '" + dateOfDeath;
+    }
 }

@@ -14,11 +14,19 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String bookName;
-    private List<String> lenguage;
+    private String language;
     private Double downloads;
     private Long autorId;
 
+    public Book(){
+    }
 
+    public Book(String bookName, String language, Double downloads, Long autorId) {
+        this.bookName = bookName;
+        this.language = language;
+        this.downloads = downloads;
+        this.autorId = autorId;
+    }
 
     public Long getAutorId() {
         return autorId;
@@ -43,12 +51,12 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public List<String> getLenguage() {
-        return lenguage;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setLenguage(List<String> lenguage) {
-        this.lenguage = lenguage;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public Double getDownloads() {
@@ -61,11 +69,10 @@ public class Book {
 
     @Override
     public String toString() {
-        return  "id=" + id +
-                ", name='" + bookName + '\'' +
-//                ", author=" + author +
-                ", lenguage='" + lenguage + '\'' +
-                ", downloads=" + downloads +
-                ", autorId=" + autorId;
+        return
+                ", Nombre Libro:'" + bookName + '\'' +
+                ", Idioma: '" + language + '\'' +
+                ", Descargas: " + downloads +
+                ", AutorId=" + autorId;
     }
 }
