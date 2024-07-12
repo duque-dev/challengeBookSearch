@@ -1,24 +1,29 @@
 package com.alurapractice.challengebooksearch.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name="autor")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Autor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dateOfBorn;
-    private Date dateOfDeath;
-    private List<Book> autorBooks;
+    private String authorName;
+    private String dateOfBorn;
+    private String dateOfDeath;
+    public Autor(){
+    }
 
-    @OneToMany(mappedBy = "book")
-    private Set<Book> book;
+    public Autor(String authorName, String dateOfBorn, String dateOfDeath) {
+        this.authorName = authorName;
+        this.dateOfBorn = dateOfBorn;
+        this.dateOfDeath = dateOfDeath;
+    }
 
     public Long getId() {
         return id;
@@ -28,35 +33,35 @@ public class Autor {
         this.id = id;
     }
 
-    public Date getDateOfBorn() {
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getDateOfBorn() {
         return dateOfBorn;
     }
 
-    public void setDateOfBorn(Date dateOfBorn) {
+    public void setDateOfBorn(String dateOfBorn) {
         this.dateOfBorn = dateOfBorn;
     }
 
-    public Date getDateOfDeath() {
+    public String getDateOfDeath() {
         return dateOfDeath;
     }
 
-    public void setDateOfDeath(Date dateOfDeath) {
+    public void setDateOfDeath(String dateOfDeath) {
         this.dateOfDeath = dateOfDeath;
     }
 
-    public List<Book> getAutorBooks() {
-        return autorBooks;
-    }
-
-    public void setAutorBooks(List<Book> autorBooks) {
-        this.autorBooks = autorBooks;
-    }
-
-    public Set<Book> getBook() {
-        return book;
-    }
-
-    public void setBook(Set<Book> book) {
-        this.book = book;
+    @Override
+    public String toString() {
+        return
+                "Nombre Autor: '" + authorName + '\'' +
+                ", Fecha Nacimiento:'" + dateOfBorn + '\'' +
+                ", Fecha Fallecimiento: '" + dateOfDeath;
     }
 }
